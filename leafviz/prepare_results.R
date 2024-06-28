@@ -76,8 +76,7 @@ if(file.exists(groups_file)){ # can we run without this?
 # exon table no longer used for anything - just saved with the Rdata object at the end
 exons_table=if (!is.null( exon_file )) {
   cat("Loading exons from",exon_file,"\n")
-  #read_table(exon_file)
-  as.data.frame(fread(paste("zless",exon_file)), data.table=F )
+  read.table(exon_file, header=TRUE)
 } else {
   cat("No exon_file provided.\n")
   NULL
